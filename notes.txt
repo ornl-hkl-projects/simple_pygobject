@@ -1,0 +1,12 @@
+Attempt at creating a simple use of PyGObject to a custom package (not, for instance, gtk). This is for basic understanding of the python bindings used in hkl.
+
+PyGObjects are bindings for GNOME apps such as gtk. I believe all gnome apps are related to their gui's. It might be simpler to compile --disable-gui within EPICS initially
+
+assuming conda env for now
+
+conda env create -n simple_pygobject python=3.8
+conda activate simple_pygobject
+conda install -c conda-forge pygobject
+
+
+
