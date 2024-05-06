@@ -42,3 +42,50 @@ some .so files placed in /usr/local/lib
 need to find a way to find these files with gi
 probably need to specify a path somewhere
 
+similar issues related to correct linking mentioned here
+https://aravis-project.discourse.group/t/introspection-error-after-install/132
+https://github.com/SintefManufacturing/python-aravis/issues/4
+"typelib" for hkl can be found in 
+/usr/local/lib/girepository-1.0/Hkl-5.0.typelib
+
+should try 
+sudo ln -s /usr/local/lib/girepository-1.0/Hkl-5.0.typelib  /usr/local/lib/python2.7/dist-packages/
+tried 
+sudo ln -s /usr/local/lib/girepository-1.0/Hkl-5.0.typelib /usr/local/lib/python2.7/dist-packages/
+
+got same error, cannot import Hkl through gi.repository
+
+trying 
+sudo ln -s /usr/local/lib/girepository-1.0/Hkl-5.0.typelib /usr/lib/i386-linux-gnu/girepository-1.0/
+
+that didn't work either, still cannot import Hkl through gi.repository
+
+one more try with linking
+sudo ln -s /usr/local/lib/girepository-1.0/Hkl.5.0.typelib /usr/lib/girepository-1.0/
+
+still no good
+Maybe specify lib location when compiling hkl?
+
+
+
+
+Another way, using ctypes instead of gi:
+
+>>> lib_hkl = cdll.LoadLibrary("/usr/local/lib/libhkl.so")
+>>> print(lib_hkl.__doc__)
+An instance of this class represents a loaded dll/shared
+    library, exporting functions using the standard C calling
+    convention (named 'cdecl' on Windows).
+
+    The exported functions can be accessed as attributes, or by
+    indexing with the function name.  Examples:
+
+    <obj>.qsort -> callable object
+    <obj>['qsort'] -> callable object
+
+    Calling the functions releases the Python GIL during the call and
+    reacquires it afterwards.
+
+difficult to tell what the functions are within the hkl object, or if I selected the right hkl shared library (there are a few, see HKL_additional notes)
+
+
