@@ -12,42 +12,18 @@ conda install -c conda-forge pygobject
 
 
 without conda:
-import gi works...
+import gi works
 
 
-
-
-
-
-(ornl_hkl) alexander@alexander-Precision-5520:~/Desktop/ornl/simple_pygobject$ conda deactivate
-alexander@alexander-Precision-5520:~/Desktop/ornl/simple_pygobject$ python
+```bash
+conda deactivate
+python
+```
 Python 2.7.18 (default, Jan 31 2024, 16:23:13)
 [GCC 9.4.0] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import gi
 >>>
-
-
-... from there ...
-
-Type "help", "copyright", "credits" or "license" for more information.
->>> import gi
->>> import hkl
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ImportError: No module named hkl
->>> import Hkl
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ImportError: No module named Hkl
->>> import HKL
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ImportError: No module named HKL
->>> import HKl
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ImportError: No module named HKl
 >>> from gi.repository import Hkl
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -59,4 +35,10 @@ ImportError: cannot import name Hkl, introspection typelib not found
 
 >>> print(GObject)
 <GObjectProxyModule <IntrospectionModule 'GObject' from '/usr/lib/x86_64-linux-gnu/girepository-1.0/GObject-2.0.typelib'>>
+
+
+configured hkl with --enable-introspection, compiled
+some .so files placed in /usr/local/lib
+need to find a way to find these files with gi
+probably need to specify a path somewhere
 
