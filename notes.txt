@@ -7,6 +7,56 @@ assuming conda env for now
 conda env create -n simple_pygobject python=3.8
 conda activate simple_pygobject
 conda install -c conda-forge pygobject
+^ not working, trying pip
+(did not try pip)
 
 
+without conda:
+import gi works...
+
+
+
+
+
+
+(ornl_hkl) alexander@alexander-Precision-5520:~/Desktop/ornl/simple_pygobject$ conda deactivate
+alexander@alexander-Precision-5520:~/Desktop/ornl/simple_pygobject$ python
+Python 2.7.18 (default, Jan 31 2024, 16:23:13)
+[GCC 9.4.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import gi
+>>>
+
+
+... from there ...
+
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import gi
+>>> import hkl
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named hkl
+>>> import Hkl
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named Hkl
+>>> import HKL
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named HKL
+>>> import HKl
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named HKl
+>>> from gi.repository import Hkl
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/gi/importer.py", line 133, in load_module
+    'introspection typelib not found' % namespace)
+ImportError: cannot import name Hkl, introspection typelib not found
+>>> from gi.repository import GObject
+>>>
+
+>>> print(GObject)
+<GObjectProxyModule <IntrospectionModule 'GObject' from '/usr/lib/x86_64-linux-gnu/girepository-1.0/GObject-2.0.typelib'>>
 
