@@ -6,6 +6,11 @@ lib_hkl = cdll.LoadLibrary("/usr/local/lib/libhkl.so")
 lib_hkl = CDLL("/usr/local/lib/libhkl.so")
 lib_hkl
 
+res = lib_hkl.Detector.factory_new(lib_hkl.DetectorType(0))
+print(res)
+
+
+
 print(getmembers(lib_hkl, isfunction))
 # doesnt work, returns empty list
 

@@ -89,3 +89,9 @@ An instance of this class represents a loaded dll/shared
 difficult to tell what the functions are within the hkl object, or if I selected the right hkl shared library (there are a few, see HKL_additional notes)
 
 
+
+
+
+moving back to gi, trying
+GI_TYPELIB_PATH=/usr/local/lib/girepository-1.0
+also no
