@@ -4,7 +4,8 @@ channels:
   - defaults
 dependencies:
   - python=3.11
-  - ctypes
+  #- ctypes - comes with python
+  - numpy
   - pip
   #  - pip -r requirements.txt if needed
 

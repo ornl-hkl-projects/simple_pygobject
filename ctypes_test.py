@@ -1,13 +1,15 @@
-from cytpes import *
-from inspect import getmembers, isfunction
+from ctypes import *
+#from inspect import getmembers, isfunction
 
 lib_hkl = cdll.LoadLibrary("/usr/local/lib/libhkl.so")
 # or
 lib_hkl = CDLL("/usr/local/lib/libhkl.so")
 lib_hkl
 
-res = lib_hkl.Detector.factory_new(lib_hkl.DetectorType(0))
-print(res)
+detector = lib_hkl.hkl_detector_factory_new(lib_hkl.hkl_detector_type_get_type(0))
+print(help(lib_hkl.hkl_factories))
+factory = lib_hkl.hkl_factories()['K6C']
+geometry = factory.create_new_geometry()
 
 
 
