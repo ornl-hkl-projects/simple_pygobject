@@ -1,6 +1,4 @@
-# likely need to compile with --enable-introspection=yes
-# unmodified from documentation
-
+import math
 from gi.repository import GLib
 from gi.repository import Hkl
 
