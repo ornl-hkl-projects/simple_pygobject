@@ -7,6 +7,14 @@ sudo apt install python3
 
 # hkl
 Compile hkl with the flag --enable-introspection (and, for now, --disable-gui)
+```bash
+./autogen
+./configure --enable introspection
+make
+sudo make install
+```
+
+(when reinstalling, sudo is required for make install, needs sudo to replace ccan)
 
 identify where the hkl typelib file was created, the file is named Hkl-5.0.typelib and is located in 
 /usr/local/lib/girepository-1.0
